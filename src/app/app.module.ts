@@ -8,6 +8,11 @@ import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
+import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage
   ],
   imports: [
+    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
+    AngularFireDatabaseModule,
+    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
   ],
